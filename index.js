@@ -52,9 +52,10 @@ app.get('/logged',async (req, res) => {
 
 app.get('/login/forgetPassword', (req, res) => {
     let error = req.cookies.recoveryError || '';
-    if (error !== '')
+    if (error !== '') {
         res.clearCookie('recoveryError');
-        res.render('forgetLoginpassword', {'error': error});
+    }
+    res.render('forgetLoginpassword', {'error': error});
 });
 
 app.post('/login/forgetPassword',async (req, res) => {
