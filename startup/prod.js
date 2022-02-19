@@ -14,6 +14,7 @@ module.exports = function (app) {
 // npm uninstall -g heroku
 // heruko -v
 // heruko -b
+// if error occure go and watch mosh lecture
 // some setting on package.json on start and engine
 // (install git)
 // git --version
@@ -22,8 +23,14 @@ module.exports = function (app) {
 // git init
 // (do some work on .gitignore)
 // git add .
-// git commit -n "First commit."
+// git commit -m "First commit."
+
+// heroku create
+// OR heroku create renting
+// git remote -v
+// git push heroku master {push our changes}
+// https://powerful-sea-80754.herokuapp.com/    copy
+// heroku logs or dashboard.heroku.com
+// heroku config:set NODE_ENV=production
 
 // To run application => npm start
-
-// if error occure go and watch mosh lecture 
