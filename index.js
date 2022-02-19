@@ -55,7 +55,7 @@ app.get('/login/forgetPassword', (req, res) => {
     if (error !== '') {
         res.clearCookie('recoveryError');
     }
-    res.render('forgetLoginpassword', {'error': error});
+    res.render('forgetLoginPassword', {'error': error});
 });
 
 app.post('/login/forgetPassword',async (req, res) => {
