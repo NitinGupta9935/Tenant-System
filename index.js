@@ -7,6 +7,8 @@ const { name } = require('ejs');
 const db = new DB();
 const sendEmail = require('./sendEmail');
 const upload = require('express-fileupload');
+const req = require('express/lib/request');
+const { redirect } = require('express/lib/response');
 require('./startup/prod')(app);     // for production
 
 
@@ -189,24 +191,30 @@ app.get('/edit/:id', async (req, res) => {
 app.post('/edit/:id', async (req, res) => {
     const { firstName, lastName, email, password, married, people, job, vichele, number } = req.body;
     let photo = id = '';
-        let temp = married || '';
-        let isMarried = true;
-        if (temp === '')
-            isMarried = false;
-        if (req.files) {
-            if (req.files.photo !== undefined) {
-                photo = req.files.photo.name;
-                req.files.photo.mv('./uploads/' + photo, function () { });
-            }
-            if (req.files.id !== undefined) {
-                id = req.files.id.name;
-                req.files.id.mv('./uploads/' + id, function () { });
-            }
+    let temp = married;
+    let isMarried = true;
+    if (temp === undefined)
+    isMarried = false;
+    if (req.files) {
+        if (req.files.photo !== undefined) {
+            photo = req.files.photo.name;
+            req.files.photo.mv('./uploads/' + photo, function () { });
         }
-        let userId = await db.update(req.params.id ,firstName, lastName, email, password, isMarried, people, job, photo, id, vichele, number);
+        if (req.files.id !== undefined) {
+            id = req.files.id.name;
+            req.files.id.mv('./uploads/' + id, function () { });
+        }
+    }
+    console.log(isMarried);
+    let userId = await db.update(req.params.id ,firstName, lastName, email, password, isMarried, people, job, photo, id, vichele, number);
     // console.log();
     res.redirect(`/view/${req.params.id}`);
     // res.send(req.body);
+});
+
+app.post('/delete/:id', async (req, res) => {
+    await db.delete(req.params.id);
+    res.render("home", { 'userData': await db.getUserData() });
 });
 
 const port = process.env.PORT || 3000;

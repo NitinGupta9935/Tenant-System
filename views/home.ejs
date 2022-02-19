@@ -32,6 +32,7 @@
             float: left;
             padding-right: 10px;
         }
+        
     </style>
 </head>
 <body>
@@ -58,14 +59,14 @@
 
     <div class="displayData">
     <% for (let i = 0; i < userData.length; i++) {%> 
-        <div class="card" style="width: 15rem;">
+        <div class="card" style="width: 250px;">
             <div>
                 <img src=<%=userData[i].photo %> alt="">
             </div>
             <div class="userDetail">
                 <h5><%= userData[i].firstName %> </h5>
+                <p><%= userData[i].job %> </p>
                 <p><%= userData[i].number %> </p>
-                <p><%= userData[i].people %> people </p>
                 <form action="" method="post">
                 <a href="/view/<%= userData[i]._id %> " class="btn btn-primary" name>View</a>
                 </form>

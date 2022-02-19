@@ -34,3 +34,9 @@ module.exports = function (app) {
 // heroku config:set NODE_ENV=production
 
 // To run application => npm start
+
+
+// After updating the application
+// git add .
+// git commit -m "Some commit."
+// git push heroku master

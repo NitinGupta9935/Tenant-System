@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 let adminPassword = '123';
 
-mongoose.connect('mongodb+srv://nitingupta9935:9115275119@cluster0.ci83y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+// mongodb+srv://nitingupta9935:9115275119@cluster0.ci83y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+mongoose.connect('mongodb://localhost/Renting')
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to Database', err));
 
@@ -120,6 +121,10 @@ class DB {
         userData.number = number;
 
         await userData.save();
+    }
+
+    async delete(_id) {
+        await await UserData.findByIdAndDelete(_id);
     }
 }
 
