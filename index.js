@@ -11,7 +11,6 @@ const req = require('express/lib/request');
 const { redirect } = require('express/lib/response');
 require('./startup/prod')(app);     // for production
 
-
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
@@ -218,6 +217,7 @@ app.post('/delete/:id', async (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
