@@ -209,7 +209,7 @@ app.post('/edit/:id', async (req, res) => {
     // res.send(req.body);
 });
 
-const port = process.env.PROT || 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
