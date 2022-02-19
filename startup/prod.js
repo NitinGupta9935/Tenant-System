@@ -35,7 +35,6 @@ module.exports = function (app) {
 
 // To run application => npm start
 
-
 // After updating the application
 // git add .
 // git commit -m "Some commit."

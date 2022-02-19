@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 let adminPassword = '123';
 
 // mongodb+srv://nitingupta9935:9115275119@cluster0.ci83y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-mongoose.connect('mongodb://localhost/Renting')
+// mongoose.connect('mongodb://localhost/Renting')
+mongoose.connect('mongodb+srv://nitingupta9935:9115275119@cluster0.ci83y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to Database', err));
 
