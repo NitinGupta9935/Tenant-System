@@ -29,7 +29,7 @@ app.get('/login', (req, res) => {
     res.render('login', { "error": error });
 });
 
-app.post('/login',async (req, res) => {
+app.post('/login',async (req, re) => {
     let { email, password } = req.body;
     if (!await db.isEmailExist(email)) {
         res.cookie('loginError', "Enter a valid email is invalid");
@@ -216,6 +216,12 @@ app.post('/delete/:id', async (req, res) => {
     await db.delete(req.params.id);
     res.render("home", { 'userData': await db.getUserData() });
 });
+
+app.get('/userData', async (req, res) => {
+    const data = await db.getUserData();
+    console.log(data);
+    res.send(data);
+})
 
 const port = process.env.PORT || 3000;
 
