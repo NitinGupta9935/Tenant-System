@@ -7,7 +7,7 @@ module.exports = function (app) {
 };
 
 
-// Heroku gmail:- nitingupta9935@gmail.com   pass:- Fake@6347
+// Heroku gmail:- nitingupta9935@gmail.com   pass:- 987654321
 
 // On CMD
 // npm i -g heroku
